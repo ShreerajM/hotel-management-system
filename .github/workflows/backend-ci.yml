@@ -2,7 +2,11 @@ name: HMS Application
 
 on:
   push:
-    branches: ["main"]
+    branches: ["*"]
+    paths:
+      - "backend/**"
+  pull_request:
+    branches: ["*"]
     paths:
       - "backend/**"
 
