@@ -1,10 +1,11 @@
 from fastapi import FastAPI, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI()
 
 origins = ["http://localhost:3000", "localhost:3000"]
 
-app.middleware(
+app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
@@ -23,7 +24,7 @@ api_router = APIRouter(
         403: {"description": "Forbidden"},
         404: {"description": "Not found"},
         500: {"description": "Internal Server Error"},
-    }
+    },
 )
 
 app.include_router(api_router)
