@@ -46,7 +46,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry
           cd ./backend
-          poetry install --with dev
+          poetry install
       - name: Lint with ruff
         run: |
           cd ./backend && poetry run ruff check .
@@ -67,7 +67,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry
           cd ./backend
-          poetry install --with dev
+          poetry install
       - name: Run Pytest
         run: |
           cd ./backend && poetry run pytest --durations=10 --color=yes -vv
